@@ -26,14 +26,19 @@ export class LeaderboardPage {
     public storage: Storage,
     public platform: Platform) {
 
-    this.score = this.navParams.get('score');
+    
+    let temp = this.navParams.get('score');
+    this.score = temp === undefined ? 0 : temp;
+    // console.log("score is " + this.score);
+
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeaderboardPage');
     // Platform.ready isn't required in the new Ionic
     this.platform.ready().then(() => {
-      /*Storage get*/.then((result) => {
+      /*Storage get*/this.storage.get('leaderboard').then((result) => {
         let res;
         if(!result) {
           res = []
@@ -56,7 +61,7 @@ export class LeaderboardPage {
           }
         })
 
-        /*Storage set*/.('leaderboard', JSON.stringify(res));
+        /*Storage set*/this.storage.set('leaderboard', JSON.stringify(res));
       })
     })
   }
