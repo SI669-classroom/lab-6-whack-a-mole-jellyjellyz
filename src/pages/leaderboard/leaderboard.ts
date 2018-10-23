@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { DataProvider } from '../../provider/data/data';
+// import { DataProvider } from '../../provider/data/data';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -22,7 +22,7 @@ export class LeaderboardPage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
-    public dataService: DataProvider, 
+    // public dataService: DataProvider, 
     public storage: Storage,
     public platform: Platform) {
 
